@@ -15,5 +15,7 @@ collections:
   maven:
     output: true
     title: true
-    sort: true
-    sort_by: sort
+    #not working on git hub
+    # order:
+    #   - introduction.md
+    #   - dependency_management.md
