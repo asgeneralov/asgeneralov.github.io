@@ -4,9 +4,10 @@ layout: default
 ---
 # Apache Maven
 <ol class="page-list">
-{% for maven_member in site.maven %}
+{% assign ordered_pages = site.maven | sort:'order'  %}
+{% for maven_member in ordered_pages  %}
   <!-- <h2>{{ maven_member.title }}</h2> -->
-  <li>
+  <li> 
   <a href="{{ maven_member.url | relative_url }}">
     {{ maven_member.title }}
   </a>

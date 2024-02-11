@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: defaultgit 
 title: "Свойства в Java"
 ---
 # {{page.title}}
