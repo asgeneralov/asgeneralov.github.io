@@ -15,7 +15,9 @@ collections:
   maven:
     output: true
     title: true
-    #not working on git hub
+  snippets:
+    output: true
+    title: true    #not working on git hub
     # order:
     #   - introduction.md
     #   - dependency_management.md
