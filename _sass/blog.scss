@@ -12,8 +12,21 @@ ul.page-list{
     list-style: none;
 }
 
+.post-list a:hover{
+    text-decoration: none;
+}
+.post-list a:hover span.title{
+    text-decoration: underline;
+}
+
+
+
 .post-list span.date{
     color: #666;
+}
+
+.post-list a:hover span.date{
+    text-decoration: none;
 }
 
 

@@ -18,7 +18,7 @@ title: "Blog"
 <ul class="post-list">
   {% for post in site.posts %}
     <li>
-      <a href="{{ post.url }}">{{ post.title }} <span class="date">({{ post.date | date: "%d.%m.%Y" }})</span></a>
+      <a href="{{ post.url }}"><span class="title">{{ post.title }} </span>&nbsp;<span class="date">({{ post.date | date: "%d.%m.%Y" }})</span></a>
     </li>
   {% endfor %}
 </ul>
