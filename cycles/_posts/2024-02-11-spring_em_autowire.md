@@ -60,11 +60,10 @@ public class ServiceWithTransactionalMethodTest {
 ``` 
 ### Запускаем тест с именем testMethodTransactionalEmAw
 
-На методе methodTransactionalEmAutowired стоит аннотация @Transactional, он отрабатывает без ошибок, 
- но в базе изменения не появляются. 
+На методе methodTransactionalEmAutowired есть аннотация @Transactional, и он работает без ошибок, но изменения в базе данных не появляются.
 ### Запускаем теперь тест testMethodNonTransactionalEmAw
 
-Он отрабатывает без ошибок, что странно, т.к. внутри em.persist(), который требует наличие транзакции. В базе изменения не появились.
+Он выполняет свою работу без ошибок, что странно, так как внутри em.persist(), который требует наличия транзакции. Однако изменения в базе данных не появились.
 
 ### Добавим теперь еще один EntityManager, но другим способом:
 
@@ -133,9 +132,9 @@ public class ServiceWithTransactionalMethodTest {
 
 ```
 ### Тест с именем testMethodTransactionalEmPc 
-@Transactional в этот раз отработал штатно и изменения внесённые в сущность Peron сохранились в базу данных. 
+@Transactional в этот раз отработал без ошибок, и изменения, внесённые в сущность Person, успешно сохранились в базе данных. 
 ### Текст с именем testMethodNonTransactionalEmPc 
-При попытке сделать persist в методе не помеченном @Transactional, кидается исключение TransactionRequiredException.
+При попытке выполнить persist в методе, который не помечен @Transactional, возникает исключение TransactionRequiredException.
 ### Так в чем разница?
 
 Посмотрим на вывод теста printClasses:
@@ -143,8 +142,7 @@ public class ServiceWithTransactionalMethodTest {
 Em persistence context :Shared EntityManager
 Em autowired :SessionImpl(1936269454<open>)
 ```
-То есть в случае @Autowired, мы получаем каждый раз один и тот же экземпляр EntityManger в виде реализации SessionImpl, 
-который мы создали в конфигурационном методе  
+То есть, в случае использования @Autowired, мы каждый раз получаем один и тот же экземпляр EntityManager, который является реализацией SessionImpl и был создан в конфигурационном методе. 
 
 ```
 @Primary
@@ -153,22 +151,18 @@ public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {
     return entityManagerFactory.createEntityManager();
 }
 ```
+Такой EntityManager не обеспечивает интеграцию с декларативным управлением транзакциями Spring, не сохраняет изменения в базу данных и даже не генерирует ошибки. Кроме того, он может быть небезопасен для использования, если наш сервис или DAO могут быть вызваны из разных потоков, так как EntityManager не является потокобезопасным классом.
 
-Такой EntityManager не получает интеграцию с декларативным управлением транзакций Spring, не сохраняет изменения в базу и даже не кидает ошибок. 
-Кроме того, он не безопасен к использованию, если наш сервис или DAO могут быть использованны из разных потоков, т.к. EntityManager не является потокобезопасным классом.
-С другой стороны, EntityManager полученный через @PersistenceContext, вставляет вместо себя SharedEntityManager прокси, 
-который транслирует вызовы к разным EntytyManager в зависимости от контекста использования, например, от потока который его вызывает, а так же получает интеграцию
-с декларативным управлением транзакциями Spring.
+С другой стороны, EntityManager, полученный через @PersistenceContext, вставляет вместо себя SharedEntityManager прокси, который транслирует вызовы к различным EntityManager в зависимости от контекста использования, например, от потока, который его вызывает, а также обеспечивает интеграцию с декларативным управлением транзакциями Spring.
 
-У аннотации @Autowired, тем не менее, есть преимущество по сравнению с @PeristenceContext, состоящее в том, что в отличие от последней, она может быть использована
-в т.ч. в конструкторах и в параметрах методов. Если это является существенным недостатком для вас, то исправить ситуацию можно создав EntityManager следующим образом:
+Аннотация @Autowired, тем не менее, имеет преимущество перед @PersistenceContext, которое заключается в том, что она может быть использована в конструкторах и параметрах методов. Если для вас это является существенным недостатком, то ситуацию можно исправить, создав EntityManager следующим образом:
 ```
 @Bean
 public EntityManager sharedEntityManager(EntityManagerFactory emf) {
     return SharedEntityManagerCreator.createSharedEntityManager(emf);
 }
 ```
-Тогда мы получим, ровно то, что и при получени EntityManager через @PersistenceContext, но только через @Autowired.
+Тогда мы получим ровно то же, что и при получении EntityManager через @PersistenceContext, но только через @Autowired.
 
 
 
