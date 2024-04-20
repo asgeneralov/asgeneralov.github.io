@@ -5,6 +5,7 @@
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
+    {% comment %}
     {%- if page_paths -%}
       <nav class="site-nav">
         <div class="trigger">
@@ -17,5 +18,7 @@
         </div>
       </nav>
     {%- endif -%}
+    {% endcomment %}
+    
   </div>
 </header>
