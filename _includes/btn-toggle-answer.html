@@ -1,0 +1,25 @@
+<script type="text/javascript">
+
+    (function() {
+
+        let BTN_TOGGLE_STATE = ['-state-hidden', '-state-visible']
+        let BTN_TOGGLE_TEXT = ['Показать ответ', 'Скрыть ответ']
+        let BTN_TOGGLE_MARKER = "btn-toggle-answer";
+
+        let toggleAnswer = toggleBtnNode => {
+            let stateIdx = toggleBtnNode.className.indexOf(BTN_TOGGLE_MARKER + BTN_TOGGLE_STATE[0]) != -1 ? 1 : 0;
+            toggleBtnNode.className = BTN_TOGGLE_MARKER + " " + BTN_TOGGLE_MARKER + BTN_TOGGLE_STATE[stateIdx];
+            toggleBtnNode.firstChild.textContent = BTN_TOGGLE_TEXT[stateIdx];
+        };
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.addEventListener("click", evt => {
+                let target =  evt.target;
+                if (target.parentNode.className.indexOf(BTN_TOGGLE_MARKER) != -1) {
+                    toggleAnswer(target.parentNode);
+                }
+            });
+        });
+    })();
+
+</script>

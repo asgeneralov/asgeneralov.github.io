@@ -4,6 +4,7 @@ layout: default
 ---
 # {{ page.title}}
 
+
 ## Структуры данных J[+] M[+] S[-]
 - Primitive data types
 - Array
@@ -11,6 +12,12 @@ layout: default
 - Map
 - Queue
 - Deque
+
+<div class="btn-toggle-answer btn-toggle-answer-state-hidden"><button>Показать ответ</button></div>
+
+<div class="answer">
+Ответ
+</div>
 
 Как устоены внутри различные реализации
 ArrayList, LinkedList, HashMap

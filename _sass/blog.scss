@@ -29,4 +29,14 @@ ul.page-list{
     text-decoration: none;
 }
 
+.btn-toggle-answer * {
+    cursor:pointer
+}
 
+.btn-toggle-answer.btn-toggle-answer-state-hidden + .answer {
+    display: none;
+}
+
+.btn-toggle-answer.btn-toggle-answer-state-visible + .answer {
+    display: block;
+}
