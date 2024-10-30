@@ -9,3 +9,6 @@ title: "Материалы"
 
 > [Why Uber Engineering Switched from Postgres to MySQL](https://www.uber.com/blog/postgres-to-mysql-migration/)  
 > Нашумевшая статья инженеров Uber описывает важные различия в реализации PostgreSQL и MySQL
+
+> [There is No Now. Problems with simultaneity in distributed systems](https://www.researchgate.net/publication/288186705_There_Is_No_Now)  
+> Problems with simultaneity in distributed systems
