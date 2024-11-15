@@ -1,7 +1,7 @@
 ---
 title: Управление зависимостями в Maven
 layout: default
-order: 2
+order: 3
 ---
 
 # Управление зависимостями в Maven
