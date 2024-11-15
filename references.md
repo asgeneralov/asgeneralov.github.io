@@ -11,4 +11,4 @@ title: "Материалы"
 > Нашумевшая статья инженеров Uber описывает важные различия в реализации PostgreSQL и MySQL
 
 > [There is No Now. Problems with simultaneity in distributed systems](https://www.researchgate.net/publication/288186705_There_Is_No_Now)  
-> Problems with simultaneity in distributed systems
+> Относительность понятия времени в распределённых системах
