@@ -145,8 +145,6 @@ pom.xml
 
 Как видно из примера свойства тоже наследуются в модулях.
 
-## Bill Of Material
-
 
 ### Список материалов
 > [Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)  

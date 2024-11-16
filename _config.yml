@@ -20,4 +20,4 @@ collections:
     title: true    #not working on git hub
     # order:
     #   - introduction.md
-    #   - dependency_management.md
+    #   - dependency-management.md
