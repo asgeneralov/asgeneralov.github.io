@@ -3,10 +3,6 @@ layout: default
 title: "Рецепты"
 ---
 # {{page.title}}
-
-Свойствами (англ. properties) называют список параметров типа «ключ-значение», доступных для чтения в работающем приложении. Основное назначение свойств — сообщать программе характеристики среды, в которой она запущена, или же изменить настройки приложения. Например, с помощью свойств можно включить режим отладки, передать адрес прокси-сервера или базы данных.
-
-
 ## Сгенерировать SSH ключ для доступа в репозиторий
 
 
@@ -18,7 +14,21 @@ ssh-keygen
 Не забыть зарегистрировать ключ на сайте куда требуется доступ. Например на github.com
 Profile -> Settings -> Access -> SSH and GPG keys -> New SSH key 
 
-
 ## Jekyll начало работы
-Инструкция https://jekyllrb.com/docs/installation/
-Руби инсталлер для Windows https://rubyinstaller.org/downloads/
+Инструкция по установке Ruby и Gems 
+https://jekyllrb.com/docs/installation/
+
+```
+#Установить менеджер пакетов bundler 
+gem install jekyll bundler
+#В папке с проектом есть Gemfile
+bundle install or bundle init
+#Создать новый проект
+bundle init
+#pf
+bundle exec jekyll serve
+```
+
+## Как настроить переключение раскладки клавиатуры в Windows кнопкой Capc Lock
+Утилита Switchy
+https://github.com/erryox/Switchy?tab=readme-ov-file
