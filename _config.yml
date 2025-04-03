@@ -12,6 +12,9 @@ plugins:
   - jekyll-seo-tag
 collections_dir: cycles
 collections:
+  devops:
+    output: true
+    title: true
   maven:
     output: true
     title: true
