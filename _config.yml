@@ -18,6 +18,9 @@ collections:
   maven:
     output: true
     title: true
+  java:
+    output: true
+    title: true
   snippets:
     output: true
     title: true    #not working on git hub

@@ -1,6 +1,7 @@
 ---
 layout: default 
 title: "Свойства в Java"
+order: 1
 ---
 # {{page.title}}
 
