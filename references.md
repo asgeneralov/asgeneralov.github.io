@@ -24,3 +24,8 @@ title: "Материалы"
 
 > [Essence of calculus](https://www.youtube.com/watch?v=WUvTyaaNkzM&list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr&pp=0gcJCV8EOCosWNin)  
 > Введение в исчисление от 3Blue1Brown
+
+## Книги
+> ### Vladimir Khorikov. Unit Testing: Principles, Practices, and Patterns. 2020, Manning
+Автор излагает принципы идеального юнит-теста, описывает пирамиду тестирования, моки и стабы. Он также объясняет, 
+какие подходы, принципы и шаблоны проектирования применять, чтобы код приложения стал удобным в поддержке и тестировании.
