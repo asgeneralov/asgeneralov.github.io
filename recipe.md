@@ -29,6 +29,6 @@ bundle init
 bundle exec jekyll serve
 ```
 
-## Как настроить переключение раскладки клавиатуры в Windows кнопкой Capc Lock
+## Как настроить переключение раскладки клавиатуры в Windows кнопкой Caps Lock
 Утилита Switchy
 https://github.com/erryox/Switchy?tab=readme-ov-file
